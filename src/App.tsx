@@ -17,7 +17,7 @@ export default function App() {
 	);
 
 	useEffect(() => {
-		if (charactersSS) {
+		if (charactersSS && charactersSS.length) {
 			dispatch(setCharacters(charactersSS));
 			return;
 		}

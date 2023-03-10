@@ -4,7 +4,7 @@ import { useAppDispatch, useAppSelector } from "../redux/store";
 import CharactersList from "../components/CharactersList";
 import CharactersLoadingFallback from "../components/CharactersLoadingFallback";
 import ErrorContainer from "../components/ErrorContainer";
-import HomePageLogo from "../assets/imgs/rick-n-morty-logo.png";
+// import HomePageLogo from "../assets/imgs/rick-n-morty-logo.png";
 import SearchInput from "../components/SearchInput";
 import useSessionStorage from "../hooks/useSessionStorage";
 import { Character } from "../models/responseModel";
@@ -20,9 +20,10 @@ export default function HomePage() {
 		"characters",
 		[]
 	);
-
-	console.log({ charactersSS });
-	console.log({ characters });
+	const homePageLogo: string = new URL(
+		"../assets/imgs/rick-n-morty-logo.png",
+		import.meta.url
+	).href;
 
 	const debouncedSearch = useMemo(
 		() =>
@@ -51,7 +52,7 @@ export default function HomePage() {
 		<main className="HomePage">
 			<div className="HomePage__container">
 				<div className="HomePage__logo">
-					<img className="HomePage__image" src={HomePageLogo} alt="Image" />
+					<img className="HomePage__image" src={homePageLogo} alt="Image" />
 				</div>
 				<SearchInput
 					// It was said to implement a filter, I was curious to try implementing search by name according to the API documentation
