@@ -1,0 +1,21 @@
+.CharactersList {
+	display: grid;
+	max-width: 100%;
+	gap: 1rem;
+	grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+	justify-content: center;
+	margin-top: calc(61px - 1rem);
+	margin-bottom: 1rem;
+
+	&__item {
+		box-shadow: $box-shadow-card;
+		border-radius: 0.25rem;
+		overflow: hidden;
+	}
+}
+
+@media (max-width: 767.98px) {
+	.CharactersList {
+		margin-top: 0.625rem;
+	}
+}

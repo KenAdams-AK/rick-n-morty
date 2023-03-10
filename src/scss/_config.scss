@@ -1,0 +1,27 @@
+$color-white: hsla(0, 0%, 100%, 1);
+$color-black: hsla(0, 0%, 0%, 1);
+$color-black-primary: hsla(207, 72%, 11%, 1);
+$color-grey: hsla(218, 12%, 49%, 1);
+$color-grey-primary: hsla(240, 2%, 57%, 1);
+$color-grey-light: rgb(242, 242, 247);
+
+$box-shadow-card: 0px 1px 5px rgba(0, 0, 0, 0.2),
+	0px 3px 4px rgba(0, 0, 0, 0.12), 0px 2px 4px rgba(0, 0, 0, 0.14);
+
+body {
+	font-family: "Roboto", sans-serif;
+	font-size: 0.875rem;
+	color: $color-black-primary;
+	background-color: $color-white;
+}
+
+[class*="__container"] {
+	max-width: 65rem;
+	padding-left: 0.625rem;
+	padding-right: 0.625rem;
+	margin: 0 auto;
+}
+
+[class*="__container--small"] {
+	max-width: 32.5rem;
+}

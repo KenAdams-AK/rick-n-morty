@@ -1,0 +1,25 @@
+.HomePage {
+	&__container {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 1rem;
+		margin-top: 5.375rem;
+	}
+
+	&__logo {
+		max-width: 37.5rem;
+	}
+}
+
+@media (max-width: 767.98px) {
+	.HomePage__container {
+		margin-top: 2.625rem;
+	}
+}
+
+@media (max-width: 424.98px) {
+	.HomePage__container {
+		margin-top: 1.25rem;
+	}
+}
