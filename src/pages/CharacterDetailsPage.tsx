@@ -36,7 +36,7 @@ export default function CharacterDetailsPage() {
 		}
 		const promise = dispatch(fetchSingleChar(id));
 
-		return () => promise.abort();
+		// return () => promise.abort();
 	}, [id]);
 
 	useEffect(() => {
