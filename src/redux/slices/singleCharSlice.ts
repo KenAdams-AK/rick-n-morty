@@ -22,7 +22,9 @@ export const fetchSingleChar = createAsyncThunk('singleChar/fetchSingleChar', as
     source.cancel()
   })
 
-  const response = await axios.get<Character>(`${ApiRouts.GET_CHARACTERS_URL}/${id}`)
+  const response = await axios.get<Character>(`${ApiRouts.GET_CHARACTERS_URL}/${id}`, {
+    cancelToken: source.token
+  })
 
   return response.data
 })
