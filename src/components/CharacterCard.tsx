@@ -5,8 +5,6 @@ type PropsT = {
 	character: Character;
 };
 
-// TODO: Add animation on loading
-
 export default function CharacterCard(props: PropsT) {
 	const { character } = props;
 

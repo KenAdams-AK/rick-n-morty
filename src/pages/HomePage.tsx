@@ -4,7 +4,6 @@ import { useAppDispatch, useAppSelector } from "../redux/store";
 import CharactersList from "../components/CharactersList";
 import CharactersLoadingFallback from "../components/CharactersLoadingFallback";
 import ErrorContainer from "../components/ErrorContainer";
-// import HomePageLogo from "../assets/imgs/rick-n-morty-logo.png";
 import SearchInput from "../components/SearchInput";
 import useSessionStorage from "../hooks/useSessionStorage";
 import { Character } from "../models/responseModel";
@@ -59,7 +58,6 @@ export default function HomePage() {
 					placeholder="Search by name..."
 					maxLength={15}
 					onChange={debouncedSearch}
-					// onEnterUp={onEnterUp}
 					autoFocus
 				/>
 				{/* Ignoring errors from purposely aborted calls */}

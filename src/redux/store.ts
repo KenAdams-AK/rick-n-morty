@@ -2,10 +2,12 @@ import { configureStore } from "@reduxjs/toolkit"
 import { useSelector, useDispatch } from "react-redux/es/exports"
 import { TypedUseSelectorHook } from "react-redux/es/types"
 import charactersReducer from './slices/charactersSlice'
+import singleCharReducer from './slices/singleCharSlice'
 
 const store = configureStore({
   reducer: {
-    characters: charactersReducer
+    characters: charactersReducer,
+    singleChar: singleCharReducer
   }
 })
 
