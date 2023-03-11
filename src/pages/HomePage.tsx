@@ -61,10 +61,10 @@ export default function HomePage() {
 					autoFocus
 				/>
 				{/* Ignoring errors from purposely aborted calls */}
-				{error && error !== "Aborted" ? (
-					<ErrorContainer error={error} />
-				) : isLoading ? (
+				{isLoading ? (
 					<CharactersLoadingFallback />
+				) : error && error !== "Aborted" ? (
+					<ErrorContainer error={error} />
 				) : (
 					<CharactersList data={characters} />
 				)}
