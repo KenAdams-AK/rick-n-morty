@@ -18,6 +18,7 @@ export default function App() {
 
 	useEffect(() => {
 		if (charactersSS && charactersSS.length) {
+			// Setting up the list of characters from Session Storage to Refux store on page reload otherwise sending request
 			dispatch(setCharacters(charactersSS));
 			return;
 		}

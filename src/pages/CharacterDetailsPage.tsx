@@ -1,9 +1,15 @@
 import { useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import CharacterDetails from "../components/CharacterDetails";
+import ErrorContainer from "../components/ErrorContainer";
+import LoaderFallback from "../components/LoaderFallback";
 import useSessionStorage from "../hooks/useSessionStorage";
 import { Character } from "../models/responseModel";
-import { useAppSelector } from "../redux/store";
+import {
+	fetchSingleChar,
+	setSingleChar,
+} from "../redux/slices/singleCharSlice";
+import { useAppDispatch, useAppSelector } from "../redux/store";
 
 type CharacterParamsT = {
 	id: string;
@@ -12,22 +18,31 @@ type CharacterParamsT = {
 export default function CharacterDetailsPage() {
 	const navigate = useNavigate();
 	const { id } = useParams<CharacterParamsT>();
-	const { characters } = useAppSelector((state) => state.characters);
-	const [characterSS, setCharacterSS] = useSessionStorage<Character | null>(
-		"character",
+	const dispatch = useAppDispatch();
+	const { isLoading, singleChar, error } = useAppSelector(
+		(state) => state.singleChar
+	);
+	const [singleCharSS, setSingleCharSS] = useSessionStorage<Character | null>(
+		"single-character",
 		null
 	);
 
 	useEffect(() => {
 		if (!id) return;
-		const currentCharacter = characters.find(
-			(character) => character.id == parseInt(id)
-		);
-
-		if (currentCharacter) {
-			setCharacterSS(currentCharacter);
+		if (parseInt(id) === singleCharSS?.id) {
+			// Setting up the existing character from Session Storage to Refux store on page reload otherwise sending request
+			dispatch(setSingleChar(singleCharSS));
+			return;
 		}
-	}, [characters, id]);
+		const promise = dispatch(fetchSingleChar(id));
+
+		return () => promise.abort();
+	}, [id]);
+
+	useEffect(() => {
+		if (!singleChar) return;
+		setSingleCharSS(singleChar);
+	}, [singleChar]);
 
 	return (
 		<main className="CharacterDetailsPage">
@@ -38,7 +53,13 @@ export default function CharacterDetailsPage() {
 			>
 				GO BACK
 			</button>
-			<CharacterDetails character={characterSS} />
+			{isLoading ? (
+				<LoaderFallback />
+			) : error && error !== "Aborted" ? (
+				<ErrorContainer error={error} />
+			) : (
+				<CharacterDetails character={singleChar} />
+			)}
 		</main>
 	);
 }

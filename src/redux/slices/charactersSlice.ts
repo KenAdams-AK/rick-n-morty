@@ -1,4 +1,4 @@
-import axios, {AxiosResponse} from "axios"
+import axios from "axios"
 import { Character, Info, Response } from "../../models/responseModel"
 import { ApiRouts } from "../../routs/apiRouts"
 import { createAsyncThunk, createSlice, PayloadAction  } from '@reduxjs/toolkit';
@@ -59,7 +59,7 @@ const charactersSlice = createSlice({
 
     builder.addCase(fetchCharacters.rejected, (state, action) => {
       state.isLoading = false
-      // Added "if" statement in order to handle 404 status code error which is thrown by the server in response to search character by name request if there are no mathces
+      // Added "if" statement in order to handle 404 status code error which is thrown by the server in response to searching character request if there are no mathces
       if (action.error.code === 'ERR_BAD_REQUEST') {
         state.error = 'Not found...'
         return
