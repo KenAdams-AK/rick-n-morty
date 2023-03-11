@@ -2,12 +2,12 @@ import { ChangeEvent, useEffect, useMemo, useState } from "react";
 import { fetchCharacters } from "../redux/slices/charactersSlice";
 import { useAppDispatch, useAppSelector } from "../redux/store";
 import CharactersList from "../components/CharactersList";
-import CharactersLoadingFallback from "../components/CharactersLoadingFallback";
 import ErrorContainer from "../components/ErrorContainer";
 import SearchInput from "../components/SearchInput";
 import useSessionStorage from "../hooks/useSessionStorage";
 import { Character } from "../models/responseModel";
 import debounce from "lodash.debounce";
+import LoaderFallback from "../components/LoaderFallback";
 
 export default function HomePage() {
 	const dispatch = useAppDispatch();
@@ -62,7 +62,7 @@ export default function HomePage() {
 				/>
 				{/* Ignoring errors from purposely aborted calls */}
 				{isLoading ? (
-					<CharactersLoadingFallback />
+					<LoaderFallback />
 				) : error && error !== "Aborted" ? (
 					<ErrorContainer error={error} />
 				) : (
