@@ -60,14 +60,10 @@ export default function HomePage() {
 					onChange={debouncedSearch}
 					autoFocus
 				/>
+				{isLoading ? <LoaderFallback /> : null}
 				{/* Ignoring errors from purposely aborted calls */}
-				{isLoading ? (
-					<LoaderFallback />
-				) : error && error !== "Aborted" ? (
-					<ErrorContainer error={error} />
-				) : (
-					<CharactersList data={characters} />
-				)}
+				{error && error !== "Aborted" ? <ErrorContainer error={error} /> : null}
+				<CharactersList data={characters} />
 			</div>
 		</main>
 	);

@@ -5,5 +5,5 @@ type PropsT = {
 export default function ErrorContainer(props: PropsT) {
 	const { error } = props;
 
-	return <div className="ErrorContainer">{error}</div>;
+	return <div className="ErrorContainer">{error}...</div>;
 }
