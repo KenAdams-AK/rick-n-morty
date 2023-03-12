@@ -51,7 +51,7 @@ const singleCharSlice = createSlice({
 
     builder.addCase(fetchSingleChar.rejected, ((state, action) => {
       state.isLoading = false
-      state.error = action.error.message || 'Something went wrong. Try again later.'
+      state.error = action.error.message || 'Something went wrong. Try again later'
     }))
   }
 })

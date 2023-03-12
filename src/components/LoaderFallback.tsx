@@ -1,3 +1,9 @@
 export default function LoaderFallback() {
-	return <h1>Loading...</h1>;
+	return (
+		<div className="LoaderFallback">
+			<div></div>
+			<div></div>
+			<div></div>
+		</div>
+	);
 }

@@ -61,10 +61,10 @@ const charactersSlice = createSlice({
       state.isLoading = false
       // Added "if" statement in order to handle 404 status code error which is thrown by the server in response to searching character request if there are no mathces
       if (action.error.code === 'ERR_BAD_REQUEST') {
-        state.error = 'Not found...'
+        state.error = 'Not found'
         return
       }
-      state.error = action.error.message || 'Something went wrong. Try again later.'
+      state.error = action.error.message || 'Something went wrong. Try again later'
     })
   }
 })
