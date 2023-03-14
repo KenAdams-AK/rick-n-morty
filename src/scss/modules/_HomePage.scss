@@ -1,0 +1,13 @@
+.HomePage {
+	&__container {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 1rem;
+	}
+
+	&__logo {
+		max-width: 37.5rem;
+		margin-top: 5.375rem;
+	}
+}
