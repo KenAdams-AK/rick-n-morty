@@ -1,14 +1,15 @@
 @import "_reset.scss";
 @import "_config.scss";
 
-@import "./moduls/_HomePage.scss";
-@import "./moduls/_SearchInput.scss";
-@import "./moduls/_CharactersList.scss";
-@import "./moduls/_CharacterCard.scss";
+@import "./modules/_Auth.scss";
+@import "./modules/_HomePage.scss";
+@import "./modules/_SearchInput.scss";
+@import "./modules/_CharactersList.scss";
+@import "./modules/_CharacterCard.scss";
 
-@import "./moduls/_CharacterDetailsPage.scss";
-@import "./moduls/_CharacterDetails.scss";
+@import "./modules/_CharacterDetailsPage.scss";
+@import "./modules/_CharacterDetails.scss";
 
-@import "./moduls/_ErrorBoundary.scss";
-@import "./moduls/_ErrorContainer.scss";
-@import "./moduls/_LoaderFallback.scss";
+@import "./modules/_ErrorBoundary.scss";
+@import "./modules/_ErrorContainer.scss";
+@import "./modules/_LoaderFallback.scss";

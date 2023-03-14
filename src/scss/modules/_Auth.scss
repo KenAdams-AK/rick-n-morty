@@ -1,0 +1,48 @@
+.Auth {
+	position: absolute;
+	right: 1.25rem;
+	display: flex;
+	justify-content: flex-end;
+	gap: 0.625rem;
+	padding: 0.625rem;
+
+	&__button {
+		align-self: center;
+		padding: 0 1.25rem;
+		height: 1.875rem;
+		border-radius: 0.3125rem;
+		color: $color-white;
+		background-color: $color-grey-primary;
+		transition: scale ease 0.15s;
+
+		&:hover {
+			scale: 1.03;
+		}
+	}
+}
+
+.user {
+	text-align: center;
+	&__picture {
+		width: 3.125rem;
+		height: 3.125rem;
+		border-radius: 100%;
+		box-shadow: $box-shadow-card;
+		overflow: hidden;
+		margin: 0 auto;
+	}
+}
+
+@media (max-width: 424.98px) {
+	.Auth {
+		right: 0;
+		display: flex;
+		flex-direction: column;
+		align-content: center;
+		gap: 0.3125rem;
+	}
+
+	.user__picture {
+		display: none;
+	}
+}

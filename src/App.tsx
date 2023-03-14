@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { Navigate, Route, Routes } from "react-router";
+import Auth from "./components/Auth";
 import ScrollToTop from "./components/ScrollToTop";
 import useSessionStorage from "./hooks/useSessionStorage";
 import { Character } from "./models/responseModel";
@@ -29,6 +30,7 @@ export default function App() {
 
 	return (
 		<ScrollToTop>
+			<Auth />
 			<Routes>
 				<Route path={DOMRouts.HOME_PAGE} element={<HomePage />} />
 				<Route

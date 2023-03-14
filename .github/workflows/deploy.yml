@@ -41,6 +41,9 @@ jobs:
         with:
           name: production-files
           path: ./dist
+        env:
+          VITE_AUTH0_DOMAIN: ${{secrets.VITE_AUTH0_DOMAIN}}
+          VITE_AUTH0_CLIENT_ID: ${{secrets.VITE_AUTH0_CLIENT_ID}}
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
