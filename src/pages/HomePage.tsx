@@ -8,13 +8,18 @@ import useSessionStorage from "../hooks/useSessionStorage";
 import { Character } from "../models/responseModel";
 import debounce from "lodash.debounce";
 import LoaderFallback from "../components/LoaderFallback";
+import { useSearchParams } from "react-router-dom";
 
 export default function HomePage() {
 	const dispatch = useAppDispatch();
 	const { isLoading, characters, error } = useAppSelector(
 		(state) => state.characters
 	);
-	const [query, setQuery] = useState<string | null>(null);
+
+	const [searchParams, setSearchParams] = useSearchParams({ query: "" });
+	const query = searchParams.get("query");
+
+	// const [query, setQuery] = useState<string | null>(null);
 	const [charactersSS, setCharactersSS] = useSessionStorage<Character[]>(
 		"characters",
 		[]
@@ -27,7 +32,9 @@ export default function HomePage() {
 	const debouncedSearch = useMemo(
 		() =>
 			debounce(
-				(e: ChangeEvent<HTMLInputElement>) => setQuery(e.target.value.trim()),
+				(e: ChangeEvent<HTMLInputElement>) =>
+					setSearchParams({ query: e.target.value.trim() }),
+				// (e: ChangeEvent<HTMLInputElement>) => setQuery(e.target.value.trim()),
 				800
 			),
 		[]
